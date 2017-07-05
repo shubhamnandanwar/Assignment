@@ -1,33 +1,37 @@
 class OrganiseArray
-	def order_array(input_array)
-		result_array = []
-		input_array.each do |input_array_element|
-			flag = true
-			result_array.each_with_index do |result_array_element,result_array_index|
-				if (input_array_element >= result_array_element && input_array_element >= 0) || (input_array_element <= result_array_element && result_array_element < 0)
-					result_array.insert(result_array_index,input_array_element)
-					flag = false
-					break
-				end
-			end
-			result_array.push(input_array_element) if flag
-		end
-		return result_array
-	end
-
-	
+  def order_array(input_array)
+    result_array = []
+    result_array.push(input_array[0]) 
+    #CHANGE ELEMENT NAME
+    input_array[1...input_array.length].each do |input_element|
+      
+      #ELEMENT AND INDEX NAME CHANGE.
+      result_array.each_with_index do |result_element,result_index|
+        if (input_element >= result_element && input_element >= 0) || (input_element <= result_element && result_element < 0)
+          result_array.insert(result_index,input_element)
+          break
+        elsif result_index == result_array.length - 1
+          result_array.push(input_element)
+          break
+        end
+      end
+    end
+    result_array
+  end
 end
 
 input_array = []
 begin 
- 	puts("Enter an Integer\n")
- 	input_integer = gets.chomp
-	input_array.push(input_integer.to_i)
-	puts("Do you want to continue (y/n)")
-	res = gets.chomp
-end while res.eql? "y"
+  puts("Enter an Integer\n")
+  #NAME CHANGE
+  input = gets.chomp
+  input_array.push(input.to_i)
+  puts("Do you want to continue (y/n)")
+  #CHANGE THIS.
+  continue_input = gets.chomp
+end while continue_input.eql? "y"
+#ABOVE PRINT
+
+organise_array = OrganiseArray.new
 puts "\n\n"
-
-organiseArray = OrganiseArray.new
-
-puts organiseArray.order_array(input_array)
+puts organise_array.order_array(input_array)
