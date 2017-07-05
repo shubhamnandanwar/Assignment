@@ -2,10 +2,7 @@ class OrganiseArray
   def order_array(input_array)
     result_array = []
     result_array.push(input_array[0]) 
-    #CHANGE ELEMENT NAME
     input_array[1...input_array.length].each do |input_element|
-      
-      #ELEMENT AND INDEX NAME CHANGE.
       result_array.each_with_index do |result_element,result_index|
         if (input_element >= result_element && input_element >= 0) || (input_element <= result_element && result_element < 0)
           result_array.insert(result_index,input_element)
@@ -23,14 +20,11 @@ end
 input_array = []
 begin 
   puts("Enter an Integer\n")
-  #NAME CHANGE
   input = gets.chomp
   input_array.push(input.to_i)
   puts("Do you want to continue (y/n)")
-  #CHANGE THIS.
   continue_input = gets.chomp
 end while continue_input.eql? "y"
-#ABOVE PRINT
 
 organise_array = OrganiseArray.new
 puts "\n\n"
