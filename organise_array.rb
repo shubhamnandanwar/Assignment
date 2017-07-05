@@ -1,5 +1,5 @@
 class OrganiseArray
-  def order_array(input_array)
+  def self.order_array(input_array)
     result_array = []
     result_array.push(input_array[0]) 
     input_array[1...input_array.length].each do |input_element|
@@ -26,6 +26,5 @@ begin
   continue_input = gets.chomp
 end while continue_input.eql? "y"
 
-organise_array = OrganiseArray.new
 puts "\n\n"
-puts organise_array.order_array(input_array)
+puts OrganiseArray.order_array(input_array)
