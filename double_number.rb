@@ -14,7 +14,9 @@ class DoubleElement
   end
 
   def self.update_value(input)
-    input.is_integer? ? input.to_i * 2 : input.is_float? ? input.to_f * 2 : input
+    return input.to_i * 2 if input.is_integer?
+    return input.to_f * 2 if input.is_float?
+    input
   end
 
   def self.double_numbers_without_regex(input)
