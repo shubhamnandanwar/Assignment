@@ -1,12 +1,11 @@
 class String
   def is_integer?
-    return true if Integer(self) rescue false
+    return Integer(self) rescue false
   end
 
   def is_float?
-    return true if Float(self) rescue false
+    return Float(self) rescue false
   end
-  
 end
 
 class DoubleElement
@@ -14,15 +13,13 @@ class DoubleElement
     input.map! { |input_element|  /\A[-+]?\d+\z/ === input_element ? input_element.to_i*2:  /\d+[,.]\d+/ === input_element ? input_element.to_f * 2 : input_element}
   end
 
+  def self.update_value(input)
+    input.is_integer? ? input.to_i * 2 : input.is_float? ? input.to_f * 2 : input
+  end
+
   def self.double_numbers_without_regex(input)
     input.map! do |input_element|
-      if input_element.is_integer?
-        input_element.to_i * 2
-      elsif input_element.is_float?
-        input_element.to_f * 2
-      else
-        input_element
-      end
+      update_value(input_element)
     end
   end
 end
@@ -32,7 +29,7 @@ array_size = gets.chomp.to_i
 puts "\nEnter the Array Elements"
 input_array=Array.new(array_size)
 
-(0...array_size).each do |input|
+array_size.times do |input|
   input_array[input] = gets.chomp
 end
 
