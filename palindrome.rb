@@ -1,9 +1,9 @@
 class Palindrome
   def self.is_palindrome(input)
-    array_length = input.length - 1
+    length = input.length
 
-    input[0, input.length / 2].each_char.with_index do |array_char,index|
-      return false if input[index] != input[array_length - index]
+    input[0, length / 2].each_char.with_index do |character,index|
+      return false if input[index] != input[length - index - 1]
     end
     true
   end 
