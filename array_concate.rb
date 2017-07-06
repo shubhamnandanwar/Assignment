@@ -12,7 +12,7 @@ array_size = gets.chomp.to_i
 puts "\nEnter the Array Elements"
 first_input=Array.new(array_size)
 
-(0...array_size).each do |input|
+array_size.times do |input|
   first_input[input]=gets.chomp
 end
 
