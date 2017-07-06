@@ -1,10 +1,10 @@
 class String
   def is_integer?
-    return Integer(self) rescue false
+    Integer(self) rescue false
   end
 
   def is_float?
-    return Float(self) rescue false
+    Float(self) rescue false
   end
 end
 
