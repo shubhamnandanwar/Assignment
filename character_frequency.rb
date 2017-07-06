@@ -1,11 +1,11 @@
 class CharacterFrequency
 	def self.calculate_frequency(input)
-		frequency_hash = Hash.new
-		frequency_hash.default = 0
+		frequency = Hash.new
+		frequency.default = 0
 		input.each_char do |input_element|
-			frequency_hash[input_element] += 1
+			frequency[input_element] += 1
 		end
-		frequency_hash
+		frequency
 	end
 end
 
