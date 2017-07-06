@@ -1,6 +1,6 @@
 class Array
   def reverse_n
-  	length = self.length
+    length = self.length
     
     self[0, length / 2].each_with_index do |input_element,index|
       self[index], self[length - 1 - index] = self[length - 1 - index], self[index]
