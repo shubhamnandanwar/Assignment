@@ -1,7 +1,8 @@
 class Array
   def reverse_n
-    self[0, self.length / 2].each_with_index do |input_element,index|
-      self[index], self[self.length - 1 - index] = self[self.length - 1 - index], self[index]
+  	length = self.length
+    self[0, length / 2].each_with_index do |input_element,index|
+      self[index], self[length - 1 - index] = self[length - 1 - index], self[index]
     end
   end
 end
@@ -11,7 +12,7 @@ n = gets.chomp.to_i
 puts "\nEnter the Array Elements"
 input = Array.new(n)
 
-(0...n).each do |index|
+n.times do |index|
   input[index]=gets.chomp.to_i
 end
 
