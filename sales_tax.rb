@@ -50,11 +50,11 @@ items = Array.new(height){Array.new(width)}
 puts "\nEnter Items"
 item_size.times do |index|
   input = gets.chomp
-  temp = input.split(/^(\d+) +(\D+) +at +([0-9]\d*(\.\d+)?)$/)
+  input = input.split(/^(\d+) +(\D+) +at +([0-9]\d*(\.\d+)?)$/)
 
-  items[index][0] = temp[1] #Quantity
-  items[index][1] = temp[2] #Item Name
-  items[index][2] = temp[3].to_f #Item price
+  items[index][0] = input[1] #Quantity
+  items[index][1] = input[2] #Item Name
+  items[index][2] = input[3].to_f #Item price
   items[index][3] = true #Whether Sales tax is applicable
   items[index][4] = 0.0 #Sales Tax Amount
 end
