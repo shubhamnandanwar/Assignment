@@ -33,8 +33,8 @@ module SalesTaxCalculator
   end
 
   def round_off_tax(tax)
-    tax = (tax*20).round
-    tax/20.00
+    tax = (tax * 20).round
+    tax / 20.00
   end
 
 end

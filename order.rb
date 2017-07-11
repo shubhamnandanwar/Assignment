@@ -1,6 +1,5 @@
 require_relative 'sales_tax_calculator'
 require_relative 'items'
-require_relative 'exempt_items'
 
 require 'pry'
 
@@ -25,12 +24,12 @@ end
 
 items = Array.new
 puts "Enter Items"
-input = gets
 
-until input == "\n"
-  items.push(Item.new(input.split(" ")))
+loop do 
   input = gets
+  break if input == "\n"
+  items.push(Item.new(input.split(" ")))
 end
-ExemptItems.new
+
 order = Order.new(items)
 order.display_bill
